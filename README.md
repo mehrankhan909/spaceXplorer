@@ -186,7 +186,3 @@ No code changes required when replacing datasets.
 - Corrupted CSV files (tries multiple encodings)
 - NaT datetime values (graceful handling in date formatting)
 - Missing columns (only shows analytics for existing data)
-
-## License
-
-SCD Lab Project - University Academic Use
