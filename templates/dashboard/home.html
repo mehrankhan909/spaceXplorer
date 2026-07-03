@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard - Space Missions Explorer{% endblock %}
+{% block page_id %}dashboard{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+    <div>
+        <h4 class="fw-bold mb-1"><i class="fas fa-rocket me-2 text-primary"></i>Dashboard</h4>
+        <small class="text-muted">Overview of all space missions data</small>
+    </div>
+</div>
+
+<div class="row g-3 mb-4" id="kpiGrid">
+    <div class="col-lg-3 col-md-6"><div class="skeleton" style="height:100px;border-radius:16px;"></div></div>
+    <div class="col-lg-3 col-md-6"><div class="skeleton" style="height:100px;border-radius:16px;"></div></div>
+    <div class="col-lg-3 col-md-6"><div class="skeleton" style="height:100px;border-radius:16px;"></div></div>
+    <div class="col-lg-3 col-md-6"><div class="skeleton" style="height:100px;border-radius:16px;"></div></div>
+</div>
+
+<div class="row g-3 mb-4">
+    <div class="col-lg-8">
+        <div class="report-section-card h-100">
+            <div class="report-section-header"><i class="fas fa-chart-line me-2 text-primary"></i>Missions Per Year</div>
+            <div class="report-section-body">
+                <div class="chart-container" data-chart-id="missions_per_year">
+                    <div class="d-flex align-items-center justify-content-center h-100"><div class="loading-spinner"></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="report-section-card h-100">
+            <div class="report-section-header"><i class="fas fa-chart-pie me-2 text-success"></i>Mission Status</div>
+            <div class="report-section-body">
+                <div class="chart-container" data-chart-id="mission_status">
+                    <div class="d-flex align-items-center justify-content-center h-100"><div class="loading-spinner"></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-3 mb-4">
+    <div class="col-lg-6">
+        <div class="report-section-card h-100">
+            <div class="report-section-header"><i class="fas fa-trophy me-2 text-warning"></i>Top Agencies</div>
+            <div class="report-section-body">
+                <div class="chart-container" data-chart-id="top_agencies">
+                    <div class="d-flex align-items-center justify-content-center h-100"><div class="loading-spinner"></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="report-section-card h-100">
+            <div class="report-section-header"><i class="fas fa-chart-area me-2 text-info"></i>Success Rate Trend</div>
+            <div class="report-section-body">
+                <div class="chart-container" data-chart-id="success_rate_trend">
+                    <div class="d-flex align-items-center justify-content-center h-100"><div class="loading-spinner"></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="report-section-card mb-4">
+    <div class="report-section-header"><i class="fas fa-lightbulb me-2 text-warning"></i>Key Insights</div>
+    <div class="report-section-body">
+        <div class="row g-2" id="insightsContainer">
+            <div class="col-md-6"><div class="skeleton" style="height:50px;border-radius:10px;"></div></div>
+            <div class="col-md-6"><div class="skeleton" style="height:50px;border-radius:10px;"></div></div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,64 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+*.egg
+dist/
+build/
+eggs/
+*.whl
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Virtual Environment
+venv/
+env/
+.venv/
+.env
+
+# Django
+*.sqlite3
+db.sqlite3
+staticfiles/
+media/
+local_settings.py
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.local
+.env.production
+
+# Node (if any frontend build tools used)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Project specific - large files
+*.xls
+*.xlsx
+*.ipynb_checkpoints/
+
+# Keep the dataset
+!project_dataset/
+!project_dataset/*.csv
+
+# Keep requirements.txt
+!requirements.txt
+
+# Keep SRS and README
+!SRS_Document.md
+!SRS_Document.docx
+!README.md

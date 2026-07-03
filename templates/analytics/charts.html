@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block title %}Charts - Space Missions Explorer{% endblock %}
+{% block page_id %}charts{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h2 class="fw-bold mb-1"><i class="fas fa-chart-line me-2 text-primary"></i>Charts</h2>
+        <p class="text-muted mb-0">Interactive data visualizations</p>
+    </div>
+</div>
+
+<div class="row g-3 mb-4">
+    <div class="col-lg-6">
+        <div class="card h-100">
+            <div class="card-header bg-transparent"><h6 class="mb-0"><i class="fas fa-chart-line me-2 text-primary"></i>Line - Missions Per Year</h6></div>
+            <div class="card-body"><div class="chart-container" data-chart-id="missions_per_year"><div class="d-flex align-items-center justify-content-center h-100"><div class="loading-spinner"></div></div></div></div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="card h-100">
+            <div class="card-header bg-transparent"><h6 class="mb-0"><i class="fas fa-chart-bar me-2 text-success"></i>Bar - Missions Per Year</h6></div>
+            <div class="card-body"><div class="chart-container" data-chart-id="top_agencies"><div class="d-flex align-items-center justify-content-center h-100"><div class="loading-spinner"></div></div></div></div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-3 mb-4">
+    <div class="col-lg-6">
+        <div class="card h-100">
+            <div class="card-header bg-transparent"><h6 class="mb-0"><i class="fas fa-chart-pie me-2 text-warning"></i>Pie - Mission Status</h6></div>
+            <div class="card-body"><div class="chart-container" data-chart-id="mission_status"><div class="d-flex align-items-center justify-content-center h-100"><div class="loading-spinner"></div></div></div></div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="card h-100">
+            <div class="card-header bg-transparent"><h6 class="mb-0"><i class="fas fa-chart-area me-2 text-info"></i>Area - Launch Frequency</h6></div>
+            <div class="card-body"><div class="chart-container" data-chart-id="launch_frequency"><div class="d-flex align-items-center justify-content-center h-100"><div class="loading-spinner"></div></div></div></div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-3 mb-4">
+    <div class="col-lg-6">
+        <div class="card h-100">
+            <div class="card-header bg-transparent"><h6 class="mb-0"><i class="fas fa-trophy me-2 text-danger"></i>Top Agencies</h6></div>
+            <div class="card-body"><div class="chart-container" data-chart-id="top_agencies"><div class="d-flex align-items-center justify-content-center h-100"><div class="loading-spinner"></div></div></div></div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="card h-100">
+            <div class="card-header bg-transparent"><h6 class="mb-0"><i class="fas fa-globe me-2 text-primary"></i>Country Launches</h6></div>
+            <div class="card-body"><div class="chart-container" data-chart-id="country_launches"><div class="d-flex align-items-center justify-content-center h-100"><div class="loading-spinner"></div></div></div></div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-3 mb-4">
+    <div class="col-lg-6">
+        <div class="card h-100">
+            <div class="card-header bg-transparent"><h6 class="mb-0"><i class="fas fa-rocket me-2 text-success"></i>Rocket Usage</h6></div>
+            <div class="card-body"><div class="chart-container" data-chart-id="rocket_usage"><div class="d-flex align-items-center justify-content-center h-100"><div class="loading-spinner"></div></div></div></div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="card h-100">
+            <div class="card-header bg-transparent"><h6 class="mb-0"><i class="fas fa-calendar me-2 text-warning"></i>Monthly Launches</h6></div>
+            <div class="card-body"><div class="chart-container" data-chart-id="monthly_launches"><div class="d-flex align-items-center justify-content-center h-100"><div class="loading-spinner"></div></div></div></div>
+        </div>
+    </div>
+</div>
+{% endblock %}

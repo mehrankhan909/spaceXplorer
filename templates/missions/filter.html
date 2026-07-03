@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}Filter - Space Missions Explorer{% endblock %}
+{% block page_id %}missions{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+    <div>
+        <h4 class="fw-bold mb-1"><i class="fas fa-filter me-2 text-primary"></i>Filter Missions</h4>
+        <small class="text-muted">Filter and explore space mission data</small>
+    </div>
+</div>
+
+<div class="report-section-card mb-3">
+    <div class="report-section-body py-3">
+        <div class="input-group">
+            <span class="input-group-text glass-input" style="border-right:0;"><i class="fas fa-search text-muted"></i></span>
+            <input type="text" id="tableSearch" class="form-control glass-input" style="border-left:0;"
+                   placeholder="Search while filtering..." autocomplete="off">
+        </div>
+    </div>
+</div>
+
+<div class="report-section-card mb-3" id="filterPanel">
+    <div class="report-section-header d-flex justify-content-between align-items-center">
+        <span><i class="fas fa-filter me-2 text-primary"></i>Filters</span>
+        <button class="btn glass-btn btn-sm" id="resetFilters"><i class="fas fa-times me-1"></i>Clear</button>
+    </div>
+    <div class="report-section-body py-3">
+        <div id="activeFilters" class="mb-2"></div>
+        <div class="row g-2" id="filterGrid">
+            <div class="col-md-3"><div class="skeleton" style="height:36px;border-radius:8px;"></div></div>
+        </div>
+    </div>
+</div>
+
+<div class="report-section-card">
+    <div class="report-section-header">
+        <span id="resultCount" class="text-muted small">Loading...</span>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0">
+            <thead><tr id="tableHead" style="background:rgba(255,255,255,0.04);"></tr></thead>
+            <tbody id="tableBody">
+                <tr><td colspan="100" class="text-center py-5">
+                    <div class="loading-spinner"></div>
+                </td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="report-section-header d-flex justify-content-between align-items-center flex-wrap gap-2" id="pagination" style="border-top:1px solid var(--glass-border);border-bottom:none;border-radius:0 0 16px 16px;"></div>
+</div>
+{% endblock %}

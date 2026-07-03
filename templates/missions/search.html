@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}Search - Space Missions Explorer{% endblock %}
+{% block page_id %}missions{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+    <div>
+        <h4 class="fw-bold mb-1"><i class="fas fa-search me-2 text-primary"></i>Search Missions</h4>
+        <small class="text-muted">Search across all space mission data</small>
+    </div>
+</div>
+
+<div class="report-section-card mb-3">
+    <div class="report-section-body py-3">
+        <div class="input-group">
+            <span class="input-group-text glass-input" style="border-right:0;"><i class="fas fa-search text-muted"></i></span>
+            <input type="text" id="tableSearch" class="form-control glass-input" style="border-left:0;font-size:16px;padding:14px 16px;"
+                   placeholder="Type to search missions, agencies, rockets, countries..." autocomplete="off">
+        </div>
+    </div>
+</div>
+
+<div class="report-section-card">
+    <div class="report-section-header">
+        <span id="resultCount" class="text-muted small">Type to search...</span>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0">
+            <thead><tr id="tableHead" style="background:rgba(255,255,255,0.04);"></tr></thead>
+            <tbody id="tableBody">
+                <tr><td colspan="100" class="text-center py-5">
+                    <div class="report-kpi-icon" style="width:64px;height:64px;border-radius:16px;font-size:28px;background:rgba(108,92,231,0.15);color:#a29bfe;margin:0 auto 16px;">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <p class="text-muted">Start typing to search</p>
+                </td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="report-section-header d-flex justify-content-between align-items-center flex-wrap gap-2" id="pagination" style="border-top:1px solid var(--glass-border);border-bottom:none;border-radius:0 0 16px 16px;"></div>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Mission Detail - Space Missions Explorer{% endblock %}
+{% block page_id %}detail{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+    <div>
+        <h4 class="fw-bold mb-1"><i class="fas fa-satellite me-2 text-primary"></i>Mission Details</h4>
+        <small class="text-muted" id="detailSubtitle">Viewing mission #{{ mission_id }}</small>
+    </div>
+    <a href="{% url 'missions:list' %}" class="btn glass-btn btn-sm"><i class="fas fa-arrow-left me-1"></i>Back to List</a>
+</div>
+
+<div id="missionDetail" data-mission-id="{{ mission_id }}">
+    <div class="report-section-card">
+        <div class="report-section-body text-center py-5">
+            <div class="loading-spinner"></div>
+            <p class="text-muted mt-2 small">Loading mission details...</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

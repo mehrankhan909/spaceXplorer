@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Space Missions Explorer{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    {% block extra_css %}{% endblock %}
+</head>
+<body data-page="{% block page_id %}base{% endblock %}">
+    <div class="app-layout">
+        <aside class="sidebar glass-sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo"><i class="fas fa-rocket"></i></div>
+                <span class="sidebar-brand">SpaceXplorer</span>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section-title">Overview</div>
+                <a href="{% url 'dashboard:home' %}" class="sidebar-link">
+                    <i class="fas fa-th-large"></i><span>Dashboard</span>
+                </a>
+                <div class="nav-section-title">Data</div>
+                <a href="{% url 'missions:list' %}" class="sidebar-link">
+                    <i class="fas fa-rocket"></i><span>Missions</span>
+                </a>
+                <div class="nav-section-title">Analysis</div>
+                <a href="{% url 'analytics:page' %}" class="sidebar-link">
+                    <i class="fas fa-chart-line"></i><span>Analytics</span>
+                </a>
+                <div class="nav-section-title">Reports</div>
+                <a href="{% url 'reports:page' %}" class="sidebar-link">
+                    <i class="fas fa-file-alt"></i><span>Reports</span>
+                </a>
+                <a href="{% url 'reports:statistics' %}" class="sidebar-link">
+                    <i class="fas fa-calculator"></i><span>Statistics</span>
+                </a>
+                <a href="{% url 'reports:data_quality' %}" class="sidebar-link">
+                    <i class="fas fa-shield-alt"></i><span>Data Quality</span>
+                </a>
+                <div class="nav-section-title">More</div>
+                <a href="{% url 'dashboard:bookmarks' %}" class="sidebar-link">
+                    <i class="fas fa-bookmark"></i><span>Bookmarks</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="d-flex align-items-center gap-2 px-2 mb-2">
+                    <div class="position-relative flex-grow-1">
+                        <input type="text" id="globalSearch" class="form-control form-control-sm glass-input"
+                               placeholder="Search... (Ctrl+K)" autocomplete="off">
+                        <div id="searchSuggestions" class="list-group position-absolute w-100 glass-dropdown" style="z-index:1050;display:none;top:100%;"></div>
+                    </div>
+                    <button class="btn btn-sm glass-btn" id="themeToggle" title="Toggle theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+        <main class="main-content">
+            <div class="mobile-topbar d-lg-none">
+                <button class="btn glass-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <div class="page-content">
+                {% block content %}{% endblock %}
+            </div>
+        </main>
+    </div>
+
+    <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index:1090;"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

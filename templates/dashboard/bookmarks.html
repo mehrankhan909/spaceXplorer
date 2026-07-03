@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block title %}Bookmarks - Space Missions Explorer{% endblock %}
+{% block page_id %}bookmarks{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+    <div>
+        <h4 class="fw-bold mb-1"><i class="fas fa-bookmark me-2 text-primary"></i>Bookmarks</h4>
+        <small class="text-muted">Your saved missions</small>
+    </div>
+</div>
+
+{% if bookmarks %}
+<div class="row g-3">
+    {% for bm in bookmarks %}
+    <div class="col-md-6 col-lg-4">
+        <div class="report-section-card h-100" style="transition:all 0.3s ease;cursor:default;">
+            <div class="report-section-body">
+                <div class="d-flex align-items-start justify-content-between mb-2">
+                    <div class="report-kpi-icon" style="width:40px;height:40px;border-radius:10px;font-size:16px;background:rgba(108,92,231,0.15);color:#a29bfe;">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <small class="text-muted">{{ bm.created_at|date:"M d, Y" }}</small>
+                </div>
+                <h6 class="mb-2">
+                    {% if bm.mission_data.link %}
+                    <a href="{{ bm.mission_data.link }}" class="text-decoration-none" style="color:var(--text-primary);">{{ bm.mission_name }}</a>
+                    {% else %}
+                    {{ bm.mission_name }}
+                    {% endif %}
+                </h6>
+                {% if bm.mission_data.id %}
+                <a href="/missions/detail/{{ bm.mission_data.id }}/" class="btn glass-btn btn-sm mb-2" style="font-size:12px;">
+                    <i class="fas fa-eye me-1"></i>View Mission
+                </a>
+                {% endif %}
+                <div class="mt-2 pt-2" style="border-top:1px solid var(--glass-border);">
+                    <button class="btn btn-sm" style="color:#dc3545;font-size:12px;" onclick="removeBookmark({{ bm.pk }})">
+                        <i class="fas fa-trash me-1"></i>Remove
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<div class="report-section-card">
+    <div class="report-section-body text-center py-5">
+        <div class="report-kpi-icon" style="width:64px;height:64px;border-radius:16px;font-size:28px;background:rgba(108,92,231,0.15);color:#a29bfe;margin:0 auto 16px;">
+            <i class="fas fa-bookmark"></i>
+        </div>
+        <h5 class="fw-bold mb-2">No Bookmarks Yet</h5>
+        <p class="text-muted small mb-3">Go to Mission Details to bookmark missions you want to save.</p>
+        <a href="{% url 'missions:list' %}" class="btn glass-btn btn-sm"><i class="fas fa-rocket me-1"></i>Browse Missions</a>
+    </div>
+</div>
+{% endif %}
+
+{% block extra_js %}
+<script>
+function removeBookmark(id) {
+    if (confirm('Remove this bookmark?')) {
+        fetch('/bookmark/remove/' + id + '/', {
+            method: 'POST',
+            headers: {'X-CSRFToken': App.csrfToken}
+        }).then(function() { location.reload(); });
+    }
+}
+</script>
+{% endblock %}
+{% endblock %}
